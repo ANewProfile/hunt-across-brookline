@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Walgreens",
+        "description": "Walgreens is a prominent American pharmacy chain and a subsidiary of Walgreens Boots Alliance, Inc. The company was founded in 1901 in Chicago and is headquartered in Deerfield, Illinois. Walgreens specializes in filling prescriptions, providing health and wellness products, offering health information, and delivering photo services",
+        "id": 1001,
+        "coordinates": {
+            "longitude": -71.1215,
+            "latitude": 42.3326
+        },
+        "imageName": "walgreens",
+        "question": "This pharmacy still sells cigarettes",
+        "hint": "On the corner of Harvard and Aspinwall"
+    },
+    {
+        "name": "Reuning & Son Violins",
+        "description": "Reuning & Son Violins is a renowned violin dealership based in Brookline, Massachusetts, with a newly opened showroom in New York City. Founded by Christopher Reuning, the company specializes in high-quality violins, violas, and cellos, offering services such as sales, appraisals, and repairs. Known for its exceptional customer service and expertise in fine stringed instruments, Reuning & Son operates by appointment only.",
+        "id": 1002,
+        "coordinates": {
+            "longitude": -71.12186669872547,
+            "latitude": 42.33515438132852
+        },
+        "imageName": "reuning&son",
+        "question": "This shop makes stringed instruments for people like Niccolò Paganini",
+        "hint": "This is considered the hardest string instrument"
+    }
+]
