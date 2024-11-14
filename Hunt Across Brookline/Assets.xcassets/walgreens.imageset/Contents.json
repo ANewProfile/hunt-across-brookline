@@ -9,7 +9,11 @@
       "scale" : "2x"
     },
     {
+<<<<<<< HEAD
       "filename" : "walgreens.png",
+=======
+      "filename" : "walgreens.jpg",
+>>>>>>> 17bd0d671667809749bce65844bf48a23ff7b2c8
       "idiom" : "universal",
       "scale" : "3x"
     }
