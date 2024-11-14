@@ -40,10 +40,6 @@ struct LocationDetail: View {
 
 #Preview {
     let modelData = ModelData()
-<<<<<<< HEAD
-    return LocationDetail(location: modelData.locations[1])
-=======
-    return LocationDetail(location: modelData.locations[0])
->>>>>>> 17bd0d671667809749bce65844bf48a23ff7b2c8
+    LocationDetail(location: modelData.locations[0])
         .environment(modelData)
 }

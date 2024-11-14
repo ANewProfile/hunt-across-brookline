@@ -18,11 +18,7 @@ struct MapView: View {
     private var region: MKCoordinateRegion {
         MKCoordinateRegion(
             center: coordinate,
-<<<<<<< HEAD
             span: MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
-=======
-            span: MKCoordinateSpan(latitudeDelta: 0.0025, longitudeDelta: 0.0025)
->>>>>>> 17bd0d671667809749bce65844bf48a23ff7b2c8
         )
     }
 }

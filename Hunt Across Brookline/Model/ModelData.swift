@@ -10,11 +10,7 @@ import Foundation
 
 @Observable
 class ModelData {
-<<<<<<< HEAD
     var locations: [Location] = load("locationDataHard.json")
-=======
-    var locations: [Location] = load("locationData.json")
->>>>>>> 17bd0d671667809749bce65844bf48a23ff7b2c8
 }
 
 

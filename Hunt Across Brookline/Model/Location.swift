@@ -13,11 +13,8 @@ struct Location: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     var description: String
-<<<<<<< HEAD
     var question: String
     var hint: String
-=======
->>>>>>> 17bd0d671667809749bce65844bf48a23ff7b2c8
 
     private var imageName: String
     var image: Image {
