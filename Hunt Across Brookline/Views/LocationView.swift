@@ -8,14 +8,34 @@
 import SwiftUI
 
 struct LocationView: View {
+    @State private var showHint: Bool = false
     var data: Location
     
     var body: some View {
         VStack {
-            data.image
+            data.imageBlur
                 .resizable()
                 .scaledToFit()
                 .edgesIgnoringSafeArea(.all)
+            
+            Spacer()
+            
+            Text(data.question)
+                .font(.headline)
+                .padding()
+            
+            Button(action: {
+                showHint.toggle()
+            }) {
+                Text("Hint")
+                    .font(.headline)
+                    .padding()
+            }
+            
+            if showHint {
+                Text(data.hint)
+                    .font(.subheadline)
+            }
             
             Spacer()
         }

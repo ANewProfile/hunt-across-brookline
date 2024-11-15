@@ -20,6 +20,9 @@ struct Location: Hashable, Codable, Identifiable {
     var image: Image {
         Image(imageName)
     }
+    var imageBlur: Image {
+        Image("\(imageName)-blur")
+    }
 
     private var coordinates: Coordinates
     var locationCoordinate: CLLocationCoordinate2D {
