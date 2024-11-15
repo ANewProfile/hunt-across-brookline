@@ -11,7 +11,14 @@ struct LocationView: View {
     var data: Location
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            data.image
+                .resizable()
+                .scaledToFit()
+                .edgesIgnoringSafeArea(.all)
+            
+            Spacer()
+        }
     }
 }
 
