@@ -71,8 +71,8 @@ struct LocationView: View {
             }
             
             if submit {
-                ForEach(data.answer) { answer in
-                    if guess == answer {
+                ForEach(0 ..< data.answer.count, id: \.self) { answer in
+                    if guess == data.answer[answer] {
                         Text("Correct!")
                             .foregroundStyle(.green)
                             .font(.headline)
