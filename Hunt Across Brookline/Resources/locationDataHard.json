@@ -8,8 +8,9 @@
             "latitude": 42.3326
         },
         "imageName": "walgreens",
-        "question": "This pharmacy still sells cigarettes, as opposed to its competitor, the largest pharmacy chain in the United States",
-        "hint": "On the corner of Harvard and Aspinwall"
+        "location": "This pharmacy still sells cigarettes, as opposed to its competitor, the largest pharmacy chain in the United States",
+        "hint": "On the corner of Harvard and Aspinwall",
+        "question": "How many times does this business say its own name on the exterior of the building?"
     },
     {
         "name": "Reuning & Son Violins",
@@ -20,7 +21,8 @@
             "latitude": 42.33515438132852
         },
         "imageName": "reuning&son",
-        "question": "This shop makes stringed instruments for people like Niccolò Paganini",
-        "hint": "This is considered the hardest string instrument"
+        "location": "This shop makes stringed instruments for people like Niccolò Paganini",
+        "hint": "This is considered the hardest string instrument",
+        "question": "?"
     }
 ]

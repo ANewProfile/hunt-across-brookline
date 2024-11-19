@@ -15,27 +15,50 @@ struct LocationView: View {
         VStack {
             data.imageBlur
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
+                .frame(maxHeight: UIScreen.main.bounds.height / 2.5)
             
             Spacer()
             
-            Text(data.question)
+            Text(data.location)
                 .font(.headline)
                 .padding()
             
             Button(action: {
                 showHint.toggle()
             }) {
-                Text("Hint")
-                    .font(.headline)
-                    .padding()
+                ZStack() {
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.blue, lineWidth: 2)
+                        .fill(.blue)
+                        .padding()
+                    
+                    Text("Hint")
+                        .foregroundStyle(.white)
+                        .padding()
+                        .font(.headline)
+                }
+
             }
             
             if showHint {
                 Text(data.hint)
                     .font(.subheadline)
             }
+            
+            Spacer()
+            
+            Text(data.question)
+                .padding()
+            
+            TextField("Answer", text: .constant(""))
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.green, lineWidth: 2)
+                )
+                .padding()
             
             Spacer()
         }

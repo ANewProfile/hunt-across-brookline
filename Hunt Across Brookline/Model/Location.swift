@@ -13,8 +13,9 @@ struct Location: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     var description: String
-    var question: String
+    var location: String
     var hint: String
+    var question: String
 
     private var imageName: String
     var image: Image {
