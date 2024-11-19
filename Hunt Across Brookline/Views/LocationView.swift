@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LocationView: View {
     @State private var showHint: Bool = false
+    @State private var submit: Bool = false
+    @State private var guess = ""
     var data: Location
     
     var body: some View {
@@ -31,7 +33,7 @@ struct LocationView: View {
                 ZStack() {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.blue, lineWidth: 2)
-                        .fill(.blue)
+                        .fill(Color.blue)
                         .padding()
                     
                     Text("Hint")
@@ -52,13 +54,31 @@ struct LocationView: View {
             Text(data.question)
                 .padding()
             
-            TextField("Answer", text: .constant(""))
+            TextField("Answer", text: $guess)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.green, lineWidth: 2)
                 )
                 .padding()
+            
+            Button(action: {
+                submit.toggle()
+            }) {
+                Text("Submit")
+                    .foregroundStyle(.blue)
+                    .font(.headline)
+            }
+            
+            if submit {
+                ForEach(data.answer) { answer in
+                    if guess == answer {
+                        Text("Correct!")
+                            .foregroundStyle(.green)
+                            .font(.headline)
+                    }
+                }
+            }
             
             Spacer()
         }

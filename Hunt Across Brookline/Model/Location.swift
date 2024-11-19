@@ -16,6 +16,7 @@ struct Location: Hashable, Codable, Identifiable {
     var location: String
     var hint: String
     var question: String
+    var answer: Array<String>
 
     private var imageName: String
     var image: Image {
