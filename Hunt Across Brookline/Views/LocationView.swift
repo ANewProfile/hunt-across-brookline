@@ -8,12 +8,24 @@
 import SwiftUI
 
 struct LocationView: View {
-    @State private var showHint: Bool = false
-    @State private var submit: Bool = false
+    @State private var submitted: Bool = false
     @State private var guess = ""
+    @State private var correct = false
+    @State private var showHint = false
     var data: Location
     
     var body: some View {
+        blurredImage
+        hintButton
+        question
+        answer
+        submitButton
+        if submitted {
+            message
+        }
+    }
+    
+    var blurredImage: some View {
         VStack {
             data.imageBlur
                 .resizable()
@@ -26,7 +38,12 @@ struct LocationView: View {
             Text(data.location)
                 .font(.headline)
                 .padding()
-            
+                .fixedSize(horizontal: false, vertical: true)
+        }
+    }
+    
+    var hintButton: some View {
+        VStack {
             Button(action: {
                 showHint.toggle()
             }) {
@@ -48,40 +65,58 @@ struct LocationView: View {
                 Text(data.hint)
                     .font(.subheadline)
             }
-            
-            Spacer()
-            
-            Text(data.question)
-                .padding()
-            
-            TextField("Answer", text: $guess)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.green, lineWidth: 2)
-                )
-                .padding()
-            
-            Button(action: {
-                submit.toggle()
-            }) {
-                Text("Submit")
-                    .foregroundStyle(.blue)
-                    .font(.headline)
-            }
-            
-            if submit {
-                ForEach(0 ..< data.answer.count, id: \.self) { answer in
-                    if guess == data.answer[answer] {
-                        Text("Correct!")
-                            .foregroundStyle(.green)
-                            .font(.headline)
-                    }
-                }
-            }
-            
-            Spacer()
         }
+    }
+    
+    var question: some View {
+        Text(data.question)
+            .padding()
+    }
+    
+    var answer: some View {
+        TextField("Answer", text: $guess)
+            .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.green, lineWidth: 2)
+            )
+            .padding()
+            .disabled(!guess.isEmpty && submitted)
+    }
+    
+    var submitButton: some View {
+        Button(action: onSubmit) {
+            Text("Submit")
+                .foregroundStyle(.blue)
+                .font(.headline)
+        }
+    }
+    
+    var message: some View {
+        Group {
+            if correct {
+                Text("Correct!")
+                    .foregroundStyle(.green)
+            } else {
+                Text("Incorrect!")
+                    .foregroundStyle(.red)
+            }
+        }
+        .font(.headline)
+        .transition(.scale)
+    }
+    
+    func onSubmit() {
+        if !guess.isEmpty {
+            withAnimation {
+                submitted = true
+                verifyAnswer()
+            }
+        }
+    }
+    
+    func verifyAnswer() {
+        correct = data.answer.contains(guess)
     }
 }
 
