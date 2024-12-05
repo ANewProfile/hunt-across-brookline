@@ -15,13 +15,17 @@ struct LocationView: View {
     var data: Location
     
     var body: some View {
-        blurredImage
-        hintButton
-        question
-        answer
-        submitButton
-        if submitted {
-            message
+        ZStack() {
+            VStack() {
+                blurredImage
+                hintButton
+                question
+                answer
+                submitButton
+            }
+            if submitted {
+                message
+            }
         }
     }
     
@@ -81,7 +85,6 @@ struct LocationView: View {
                     .stroke(Color.green, lineWidth: 2)
             )
             .padding()
-            .disabled(!guess.isEmpty && submitted)
     }
     
     var submitButton: some View {
@@ -95,8 +98,16 @@ struct LocationView: View {
     var message: some View {
         Group {
             if correct {
-                Text("Correct!")
-                    .foregroundStyle(.green)
+                ZStack() {
+                    Rectangle()
+                        .fill(.green)
+                        .frame(width: .infinity, height: .infinity)
+                        .edgesIgnoringSafeArea(.all)
+                    Text("Correct!")
+                        .foregroundStyle(.white)
+                        .font(.largeTitle)
+                        .font(Font.custom("BlackFuture", fixedSize: 60))
+                }
             } else {
                 Text("Incorrect!")
                     .foregroundStyle(.red)
