@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct LocationView: View {
+    var locs: Array<Location>
+    var index: Int = 0
+    var data: Location = locs[index]
+    
     @State private var submitted: Bool = false
     @State private var guess = ""
     @State private var correct = false
     @State private var showHint = false
-    var data: Location
     
     var body: some View {
         ZStack() {
@@ -103,10 +106,19 @@ struct LocationView: View {
                         .fill(.green)
                         .frame(width: .infinity, height: .infinity)
                         .edgesIgnoringSafeArea(.all)
-                    Text("Correct!")
-                        .foregroundStyle(.white)
-                        .font(.largeTitle)
-                        .font(Font.custom("BlackFuture", fixedSize: 60))
+                    VStack {
+                        Text("Correct!")
+                            .foregroundStyle(.white)
+                            .font(.largeTitle)
+                            .font(Font.custom("BlackFuture", fixedSize: 60))
+                        Button(action: onNext) {
+                            Text("Next question")
+                                .foregroundStyle(.white)
+                                .background(.blue)
+                            
+                        }
+                    }
+                    
                 }
             } else {
                 Text("Incorrect!")
@@ -129,9 +141,13 @@ struct LocationView: View {
     func verifyAnswer() {
         correct = data.answer.contains(guess)
     }
+    
+    func onNext() {
+        if
+    }
 }
 
 #Preview {
     let modelData = ModelData()
-    LocationView(data: modelData.locations[0])
+    LocationView(locs: modelData.locations)
 }
