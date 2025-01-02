@@ -17,5 +17,3 @@ The prototype of the app will be an iOS app, written by me in the Swift programm
 ## Acknowledgements
 
  - [readme.so](readme.so)
- - [Apple SwiftUI Tutorials](https://developer.apple.com/tutorials/swiftui)
- - [Brookline Public Library](https://www.brooklinelibrary.org/about/contact-us/)
